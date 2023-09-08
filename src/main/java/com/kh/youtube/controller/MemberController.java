@@ -57,7 +57,8 @@ public class MemberController {
     // http://localhost:8080/user/channel?id=user1
     @GetMapping("/user/channel")
     public ResponseEntity<List<Channel>> showMember(@RequestParam String id) {
-        return ResponseEntity.status(HttpStatus.OK).body(channelService.showMember(id));
+            return ResponseEntity.status(HttpStatus.OK).body(channelService.showMember(id));
+
     }
 
 
