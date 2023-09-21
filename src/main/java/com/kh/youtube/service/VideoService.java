@@ -4,6 +4,8 @@ import com.kh.youtube.domain.Video;
 import com.kh.youtube.domain.VideoComment;
 import com.kh.youtube.repo.VideoDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +16,10 @@ public class VideoService {
     @Autowired
     private VideoDAO dao;
 
-    public List<Video> showAll() {
-        return dao.findAll();
+    public Page<Video> showAll(Pageable pageable) {
+        // dao.findAll(); => List<Video>가 온다
+        // dao.findAll(pageable) => Page<Video>를 리턴해줌  => 메서드명 수정해주기
+        return dao.findAll(pageable);
     }
 
     public Video show(int id) {
